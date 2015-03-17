@@ -4,5 +4,6 @@
 ## APIVersion: 100011
 ## SavedVariables: Packrat_SavedVariables
 
+PackratStrings.lua
 PackratUI.lua
 Packrat.lua
