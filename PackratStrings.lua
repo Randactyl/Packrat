@@ -4,6 +4,10 @@ local strings = {
 	},
 	["en"] = {
 		["SI_PACKRAT_TITLE"] = "Packrat",
+		["SI_PACKRAT_HEADERNODE_LIGHT"] = "Light Armor",
+		["SI_PACKRAT_HEADERNODE_MEDIUM"] = "Medium Armor",
+		["SI_PACKRAT_HEADERNODE_HEAVY"] = "Heavy Armor",
+		["SI_PACKRAT_HEADERNODE_OTHER"] = "Weapons & Jewelry",
 	},
 	["es"] = {
 
