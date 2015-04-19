@@ -7,4 +7,6 @@
 PackratStrings.lua
 PackratData.lua
 PackratUI.lua
+PackratScan.lua
+PackratMail.lua
 Packrat.lua
