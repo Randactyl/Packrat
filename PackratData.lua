@@ -1,1218 +1,842 @@
 Packrat = Packrat or {}
 
 Packrat.defaults = {
+	["discoveries"] = {},
 	["sets"] = {
-        [0] = 
-        {
-            ["Almalexia's Mercy"] = 
-            {
-                ["Locket of Almalexia's Mercy"] = 
-                {
-                    ["instances"] = 
-                    {
+        ["bank"] = {
+            [0] = {
+                ["Almalexia's Mercy"] = {
+                    ["Locket of Almalexia's Mercy"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["The Destruction Suite"] = 
-            {
-                ["Ring of Embers"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["The Destruction Suite"] = {
+                    ["Ring of Embers"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Torug's Pact"] = 
-            {
-                ["Restoration Staff of Torug's Pact"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Torug's Pact"] = {
+                    ["Restoration Staff of Torug's Pact"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Inferno Staff of Torug's Pact"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Inferno Staff of Torug's Pact"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Beckoning Steel"] = 
-            {
-                ["Beads of Beckoning Steel"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Beckoning Steel"] = {
+                    ["Beads of Beckoning Steel"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Twice-Fanged Serpent"] = 
-            {
-                ["Sword of the Two-Fanged Snake"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Twice-Fanged Serpent"] = {
+                    ["Sword of the Two-Fanged Snake"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Healing Mage"] = 
-            {
-                ["Aether Staff of Mending"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Healing Mage"] = {
+                    ["Aether Staff of Mending"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Aether Ring of Restoration"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Aether Ring of Restoration"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Akaviri Dragonguard"] = 
-            {
-                ["Clasp of the Dragon"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Akaviri Dragonguard"] = {
+                    ["Clasp of the Dragon"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Bastion of the Dragon"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Bastion of the Dragon"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Alessian Order"] = 
-            {
-                ["Alessian Choker"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Alessian Order"] = {
+                    ["Alessian Choker"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Alessian Necklace"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Alessian Necklace"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Adroitness"] = 
-            {
-                ["Necklace of Adroitness"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Adroitness"] = {
+                    ["Necklace of Adroitness"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Vestments of the Warlock"] = 
-            {
-                ["Focus of the Warlock"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Vestments of the Warlock"] = {
+                    ["Focus of the Warlock"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Hunding's Rage"] = 
-            {
-                ["Sword of Hunding's Rage"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Hunding's Rage"] = {
+                    ["Sword of Hunding's Rage"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Axe of Hunding's Rage"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Axe of Hunding's Rage"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Hammer of Hunding's Rage"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Hammer of Hunding's Rage"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Poisonous Serpent"] = 
-            {
-                ["Ophidian Necklace of Venom"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Poisonous Serpent"] = {
+                    ["Ophidian Necklace of Venom"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Ophidian Ring of Spirit"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ophidian Ring of Spirit"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Ophidian Bow of Venom"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ophidian Bow of Venom"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Healer's Habit"] = 
-            {
-                ["Necklace of the Healer"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Healer's Habit"] = {
+                    ["Necklace of the Healer"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Ravager"] = 
-            {
-                ["Ravaging Choker"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Ravager"] = {
+                    ["Ravaging Choker"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Ravaging Ring"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ravaging Ring"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Shadow Walker"] = 
-            {
-                ["Band of the Shadow Walker"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Shadow Walker"] = {
+                    ["Band of the Shadow Walker"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pendant of the Shadow Walker"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pendant of the Shadow Walker"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Hawk's Eye"] = 
-            {
-                ["Ring of the Hawk's Eye"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Hawk's Eye"] = {
+                    ["Ring of the Hawk's Eye"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Silks of the Sun"] = 
-            {
-                ["Staff of the Sun"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Silks of the Sun"] = {
+                    ["Staff of the Sun"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Necklace of the Sun"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Necklace of the Sun"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Destructive Mage"] = 
-            {
-                ["Aether Blazing Staff"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Destructive Mage"] = {
+                    ["Aether Blazing Staff"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Aether Ring of Empowerment"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Aether Ring of Empowerment"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Aether Necklace of Undoing"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Aether Necklace of Undoing"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Arms of Infernace"] = 
-            {
-                ["Amulet of Conflagration"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Arms of Infernace"] = {
+                    ["Amulet of Conflagration"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Hide of the Werewolf"] = 
-            {
-                ["Werewolf Hide Band"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Hide of the Werewolf"] = {
+                    ["Werewolf Hide Band"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Werewolf Hide Ring"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Werewolf Hide Ring"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Light of Cyrodiil"] = 
-            {
-                ["Ring of Cyrodiil's Light"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Light of Cyrodiil"] = {
+                    ["Ring of Cyrodiil's Light"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Berserking Warrior"] = 
-            {
-                ["Energizing Ring of the Advancing Yokeda"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Berserking Warrior"] = {
+                    ["Energizing Ring of the Advancing Yokeda"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Greatsword of the Advancing Yokeda"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Greatsword of the Advancing Yokeda"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Relics of the Physician, Ansur"] = 
-            {
-                ["Restoration Ring of Thorn"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Relics of the Physician, Ansur"] = {
+                    ["Restoration Ring of Thorn"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Blessing of the Potentates"] = 
-            {
-                ["Pact's Sword"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Blessing of the Potentates"] = {
+                    ["Pact's Sword"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Shield"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Shield"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Choker"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Choker"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Defending Warrior"] = 
-            {
-                ["Hammer of the Resilient Yokeda"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Defending Warrior"] = {
+                    ["Hammer of the Resilient Yokeda"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Ring of the Resilient Yokeda"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ring of the Resilient Yokeda"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Shield of the Resilient Yokeda"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Shield of the Resilient Yokeda"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Necklace of the Resilient Yokeda"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Necklace of the Resilient Yokeda"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Footman's Fortune"] = 
-            {
-                ["Shield of the Footman"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Footman's Fortune"] = {
+                    ["Shield of the Footman"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
             },
-        },
-        [1] = 
-        {
-            ["Scourge Harvester"] = 
-            {
-                ["Malubeth the Scourger's Epaulets"] = 
-                {
-                    ["instances"] = 
-                    {
+            [1] = {
+                ["Scourge Harvester"] = {
+                    ["Malubeth the Scourger's Epaulets"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Robes of Destruction Mastery"] = 
-            {
-                ["Gloves of Destruction Mastery"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Robes of Destruction Mastery"] = {
+                    ["Gloves of Destruction Mastery"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Sash of Destruction Mastery"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Sash of Destruction Mastery"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Breeches of Destruction Mastery"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Breeches of Destruction Mastery"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Burning Spellweave"] = 
-            {
-                ["Burning Spellweave Gloves"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Burning Spellweave"] = {
+                    ["Burning Spellweave Gloves"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Burning Spellweave Shoes"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Burning Spellweave Shoes"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Burning Spellweave Sash"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Burning Spellweave Sash"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Burning Spellweave Hat"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Burning Spellweave Hat"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Wise Mage"] = 
-            {
-                ["Aether Hat"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Wise Mage"] = {
+                    ["Aether Hat"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Aether Gloves"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Aether Gloves"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Necropotence"] = 
-            {
-                ["Shoes of Necropotence"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Necropotence"] = {
+                    ["Shoes of Necropotence"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Gloves of Necropotence"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Gloves of Necropotence"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Breeches of Necropotence"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Breeches of Necropotence"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Robe of Necropotence"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Robe of Necropotence"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Sash of Necropotence"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Sash of Necropotence"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Hat of Necropotence"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Hat of Necropotence"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Prisoner's Rags"] = 
-            {
-                ["Prisoner's Shawl"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Prisoner's Rags"] = {
+                    ["Prisoner's Shawl"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["The Worm's Raiment"] = 
-            {
-                ["Robe of the Worm Cult"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["The Worm's Raiment"] = {
+                    ["Robe of the Worm Cult"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Gloves of the Worm Cult"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Gloves of the Worm Cult"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Shoes of the Worm Cult"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Shoes of the Worm Cult"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Hat of the Worm Cult"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Hat of the Worm Cult"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Magnus' Gift"] = 
-            {
-                ["Magnus' Shoes"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Magnus' Gift"] = {
+                    ["Magnus' Shoes"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Magnus' Shirt"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Magnus' Shirt"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Vestments of the Warlock"] = 
-            {
-                ["Sash of the Warlock"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Vestments of the Warlock"] = {
+                    ["Sash of the Warlock"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Gloves of the Warlock"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Gloves of the Warlock"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Shoes of the Warlock"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Shoes of the Warlock"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Cowl of the Warlock"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Cowl of the Warlock"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Breeches of the Warlock"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Breeches of the Warlock"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Robes of the Warlock"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Robes of the Warlock"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Silks of the Sun"] = 
-            {
-                ["Breeches of the Sun"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Silks of the Sun"] = {
+                    ["Breeches of the Sun"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Gloves of the Sun"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Gloves of the Sun"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Hood of the Sun"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Hood of the Sun"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Sash of the Sun"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Sash of the Sun"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Torug's Pact"] = 
-            {
-                ["Breeches of Torug's Pact"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Torug's Pact"] = {
+                    ["Breeches of Torug's Pact"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Epaulets of Torug's Pact"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Epaulets of Torug's Pact"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Shoes of Torug's Pact"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Shoes of Torug's Pact"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Shirt of Torug's Pact"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Shirt of Torug's Pact"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Valkyn Skoria"] = 
-            {
-                ["Valkyn Skoria's Epaulets^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Valkyn Skoria"] = {
+                    ["Valkyn Skoria's Epaulets^p"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Buffer of the Swift"] = 
-            {
-                ["Pact's Sash^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Buffer of the Swift"] = {
+                    ["Pact's Sash^p"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Hat"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Hat"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Robe"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Robe"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Shoes^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Shoes^p"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Gloves^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Gloves^p"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Healer's Habit"] = 
-            {
-                ["Sash of the Healer"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Healer's Habit"] = {
+                    ["Sash of the Healer"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Epaulets of the Healer"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Epaulets of the Healer"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Shoes of the Healer"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Shoes of the Healer"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Robe of the Healer"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Robe of the Healer"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Breeches of the Healer"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Breeches of the Healer"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Hood of the Healer"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Hood of the Healer"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Engine Guardian"] = 
-            {
-                ["The Engine Guardian's Epaulets"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Gloves of the Healer"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["The Engine Guardian's Guise"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Engine Guardian"] = {
+                    ["The Engine Guardian's Epaulets"] = {
+                        ["instances"] = {
+                        },
                     },
+                    ["The Engine Guardian's Guise"] = {
+                        ["instances"] = {
+                        },
+                    },
                 },
-            },
-        },
-        [2] = 
-        {
-            ["Blood Spawn"] = 
-            {
-                ["Blood Spawn's Arm Cops"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Nightflame"] = {
+                    ["Bogdan the Nightflame's Guise"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
             },
-            ["Archer's Mind"] = 
-            {
-                ["Jack of the Archer's Mind"] = 
-                {
-                    ["instances"] = 
-                    {
+            [2] = {
+                ["Blood Spawn"] = {
+                    ["Blood Spawn's Arm Cops"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Helmet of the Archer's Mind"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Archer's Mind"] = {
+                    ["Jack of the Archer's Mind"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Bracers of the Archer's Mind"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Helmet of the Archer's Mind"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Boots of the Archer's Mind"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Bracers of the Archer's Mind"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Shield of the Valiant"] = 
-            {
-                ["Pact's Bracers^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Boots of the Archer's Mind"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Pact's Jack"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Shield of the Valiant"] = {
+                    ["Pact's Bracers^p"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Belt"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Jack"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Boots^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Belt"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Guards^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Boots^p"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Nightflame"] = 
-            {
-                ["Bogdan the Nightflame's Arm Cops"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Guards^p"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Way of Air"] = 
-            {
-                ["Arm Cops of the Air"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Nightflame"] = {
+                    ["Bogdan the Nightflame's Arm Cops"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Belt of the Air"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Way of Air"] = {
+                    ["Arm Cops of the Air"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Valkyn Skoria"] = 
-            {
-                ["Valkyn Skoria's Helmet^n"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Belt of the Air"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Maw of the Infernal"] = 
-            {
-                ["Maw of the Infernal's Arm Cops^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Valkyn Skoria"] = {
+                    ["Valkyn Skoria's Helmet^n"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Spawn of Mephala"] = 
-            {
-                ["Spawn of Mephala's Mask"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Maw of the Infernal"] = {
+                    ["Maw of the Infernal's Arm Cops^p"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Quick Serpent"] = 
-            {
-                ["Ophidian Helm"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Spawn of Mephala"] = {
+                    ["Spawn of Mephala's Mask"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Ophidian Belt of Celerity"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Quick Serpent"] = {
+                    ["Ophidian Helm"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Ophidian Chausses of Celerity"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ophidian Belt of Celerity"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Hunding's Rage"] = 
-            {
-                ["Bracers of Hunding's Rage"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ophidian Chausses of Celerity"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Boots of Hunding's Rage"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Hunding's Rage"] = {
+                    ["Bracers of Hunding's Rage"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Belt of Hunding's Rage"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Boots of Hunding's Rage"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Sunderflame"] = 
-            {
-                ["Sunderflame Bracers"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Belt of Hunding's Rage"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Twin Sisters"] = 
-            {
-                ["Bracers of the Twin Sisters"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Arm Cops of Hunding's Rage"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Jack of the Twin Sisters"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Helmet of Hunding's Rage"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Boots of the Twin Sisters"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Sunderflame"] = {
+                    ["Sunderflame Bracers"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Oblivion's Edge"] = 
-            {
-                ["Bracers of Oblivion"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Twin Sisters"] = {
+                    ["Bracers of the Twin Sisters"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Darkstride"] = 
-            {
-                ["Darkstride Boots"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Jack of the Twin Sisters"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Engine Guardian"] = 
-            {
-                ["The Engine Guardian's Mask"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Boots of the Twin Sisters"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["The Engine Guardian's Arm Cops"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Oblivion's Edge"] = {
+                    ["Bracers of Oblivion"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Scourge Harvester"] = 
-            {
-                ["Malubeth the Scourger's Mask"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Darkstride"] = {
+                    ["Darkstride Boots"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-        },
-        [3] = 
-        {
-            ["The Ice Furnace"] = 
-            {
-                ["Ice Furnace Girdle"] = 
-                {
-                    ["instances"] = 
-                    {
-                    },
-                },
-                ["Ice Furnace Gauntlets"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Engine Guardian"] = {
+                    ["The Engine Guardian's Mask"] = {
+                        ["instances"] = {
+                        },
                     },
+                    ["The Engine Guardian's Arm Cops"] = {
+                        ["instances"] = {
+                        },
+                    },
                 },
-            },
-            ["Blood Spawn"] = 
-            {
-                ["Blood Spawn's Visage"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Scourge Harvester"] = {
+                    ["Malubeth the Scourger's Mask"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
             },
-            ["Way of Fire"] = 
-            {
-                ["Gauntlets of the Fire"] = 
-                {
-                    ["instances"] = 
-                    {
+            [3] = {
+                ["The Ice Furnace"] = {
+                    ["Ice Furnace Girdle"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pauldron of the Fire"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ice Furnace Gauntlets"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Akaviri Dragonguard"] = 
-            {
-                ["Gauntlets of the Dragon"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Blood Spawn"] = {
+                    ["Blood Spawn's Visage"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Greaves of the Dragon"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Way of Fire"] = {
+                    ["Gauntlets of the Fire"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Nightflame"] = 
-            {
-                ["Bogdan the Nightflame's Visage"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pauldron of the Fire"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Bastion of the Heartland"] = 
-            {
-                ["Pact's Helm"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Akaviri Dragonguard"] = {
+                    ["Gauntlets of the Dragon"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Sabatons^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Greaves of the Dragon"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Pact's Girdle"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Nightflame"] = {
+                    ["Bogdan the Nightflame's Visage"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Pact's Cuirass"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Bastion of the Heartland"] = {
+                    ["Pact's Helm"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Pauldron^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Sabatons^p"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Gauntlets^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Girdle"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Pact's Greaves^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Cuirass"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Embershield"] = 
-            {
-                ["Embershield Sabatons"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Pauldron^p"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Embershield Greaves"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Gauntlets^p"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Embershield Gauntlets"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Pact's Greaves^p"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Ebon Armory"] = 
-            {
-                ["Ebon Cuirass"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Embershield"] = {
+                    ["Embershield Sabatons"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Ebon Sabatons"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Embershield Greaves"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Ebon Greaves"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Embershield Gauntlets"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Ebon Girdle"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Ebon Armory"] = {
+                    ["Ebon Cuirass"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Maw of the Infernal"] = 
-            {
-                ["Maw of the Infernal's Pauldron^p"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ebon Sabatons"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Immortal Warrior"] = 
-            {
-                ["Girdle of the Yokeda"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ebon Greaves"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Sabatons of the Yokeda"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ebon Girdle"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Nikulas' Heavy Armor"] = 
-            {
-                ["Gauntlets of Nikulas"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Maw of the Infernal"] = {
+                    ["Maw of the Infernal's Pauldron^p"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Ravager"] = 
-            {
-                ["Ravaging Cuirass"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Immortal Warrior"] = {
+                    ["Girdle of the Yokeda"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Ravaging Greaves"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Sabatons of the Yokeda"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Footman's Fortune"] = 
-            {
-                ["Helm of the Footman"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Nikulas' Heavy Armor"] = {
+                    ["Gauntlets of Nikulas"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Sabatons of the Footman"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Ravager"] = {
+                    ["Ravaging Cuirass"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-                ["Greaves of the Footman"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Ravaging Greaves"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-                ["Pauldrons of the Footman"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Footman's Fortune"] = {
+                    ["Helm of the Footman"] = {
+                        ["instances"] = {
+                        },
                     },
-                },
-            },
-            ["Armor of the Construct"] = 
-            {
-                ["Girdle of the Construct"] = 
-                {
-                    ["instances"] = 
-                    {
+                    ["Sabatons of the Footman"] = {
+                        ["instances"] = {
+                        },
+                    },
+                    ["Greaves of the Footman"] = {
+                        ["instances"] = {
+                        },
                     },
+                    ["Pauldrons of the Footman"] = {
+                        ["instances"] = {
+                        },
+                    },
+                    ["Gauntlets of the Footman"] = {
+                        ["instances"] = {
+                        },
+                    },
+                    ["Girdle of the Footman"] = {
+                        ["instances"] = {
+                        },
+                    },
                 },
-                ["Cuirass of the Construct"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Armor of the Construct"] = {
+                    ["Girdle of the Construct"] = {
+                        ["instances"] = {
+                        },
                     },
+                    ["Cuirass of the Construct"] = {
+                        ["instances"] = {
+                        },
+                    },
                 },
-            },
-            ["Spawn of Mephala"] = 
-            {
-                ["Spawn of Mephala's Pauldron"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Spawn of Mephala"] = {
+                    ["Spawn of Mephala's Pauldron"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
-            },
-            ["Nerien'eth"] = 
-            {
-                ["Nerien'eth's Helm^n"] = 
-                {
-                    ["instances"] = 
-                    {
+                ["Nerien'eth"] = {
+                    ["Nerien'eth's Helm^n"] = {
+                        ["instances"] = {
+                        },
                     },
                 },
             },
