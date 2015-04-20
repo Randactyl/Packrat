@@ -11,12 +11,12 @@ function Packrat.ScanInventory()
 		location = GetUnitName("player")
 	elseif BANK:IsHidden() == false then
 		inventory = BANK.data
-		location = "bank"
+		location = "Bank"
 	end
 
 	if inventory ~= nil then
 		--reset target location
-		ZO_DeepTableCopy(Packrat.defaults.sets["bank"], Packrat.savedVars.sets[location])
+		--ZO_DeepTableCopy(Packrat.defaults.sets, Packrat.savedVars.sets)
 		--clear discoveries buffer
 		SLASH_COMMANDS["/packratcleardiscoveries"]()
 		--fill target location
@@ -32,21 +32,16 @@ function Packrat.ScanInventory()
 					local itemName = GetItemLinkName(itemLink)
 
 					--first encounter
-					if Packrat.savedVars.sets[location] == nil then
-						Packrat.savedVars.sets[location] = {}
+					if Packrat.savedVars.sets[armorType] == nil then
+						Packrat.savedVars.sets[armorType] = {}
 					end
-					if Packrat.savedVars.sets[location][armorType] == nil then
-						Packrat.savedVars.sets[location][armorType] = {}
-					end
-					if Packrat.savedVars.sets[location][armorType][setName] == nil then
-						Packrat.savedVars.sets[location][armorType][setName] = {}
+					if Packrat.savedVars.sets[armorType][setName] == nil then
+						Packrat.savedVars.sets[armorType][setName] = {}
 						d("Discovered new item set: " .. setName)
 						newSet = true
 					end
-					if Packrat.savedVars.sets[location][armorType][setName][itemName] == nil then
-						Packrat.savedVars.sets[location][armorType][setName][itemName] = {
-							instances = {},
-						}
+					if Packrat.savedVars.sets[armorType][setName][itemName] == nil then
+						Packrat.savedVars.sets[armorType][setName][itemName] = {}
 						d("Discovered new set item: " .. itemLink)
 						local temp = {
 							armorType = armorType,
@@ -56,15 +51,18 @@ function Packrat.ScanInventory()
 						}
 						table.insert(Packrat.savedVars.discoveries, temp)
 					end
-					if Packrat.savedVars.sets[location][armorType][setName][itemName].instances[itemId] == nil then
-						Packrat.savedVars.sets[location][armorType][setName][itemName].instances[itemId] = {
+					if Packrat.savedVars.sets[armorType][setName][itemName][location] == nil then
+						Packrat.savedVars.sets[armorType][setName][itemName][location] = {}
+					end
+					if Packrat.savedVars.sets[armorType][setName][itemName][location][itemId] == nil then
+						Packrat.savedVars.sets[armorType][setName][itemName][location][itemId] = {
 							itemLink = itemLink,
 							count = 0,
 						}
 					end
 
 					--encountered before
-					Packrat.savedVars.sets[location][armorType][setName][itemName].instances[itemId].count = Packrat.savedVars.sets[location][armorType][setName][itemName].instances[itemId].count + 1
+					Packrat.savedVars.sets[armorType][setName][itemName][location][itemId].count = Packrat.savedVars.sets[armorType][setName][itemName][location][itemId].count + 1
 				end
 			end
 		end
