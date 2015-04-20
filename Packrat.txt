@@ -6,7 +6,6 @@
 
 PackratStrings.lua
 PackratData.lua
-PackratUI.xml
 PackratUI.lua
 PackratScan.lua
 PackratMail.lua
