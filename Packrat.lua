@@ -16,7 +16,7 @@ function Packrat.Initialize()
 
 	Packrat.InitializeDebug()
 	Packrat.InitializeSlashCommands()
-	Packrat.InitializeMail()
+	--Packrat.InitializeMail()
 	--Packrat.PackratUI.Initialize()
 
 	--EVENT_MANAGER:RegisterForEvent("Packrat_SingleSlotUpdate", EVENT_INVENTORY_SINGLE_SLOT_UPDATE, Packrat.SingleSlotUpdate)

@@ -2,7 +2,8 @@ Packrat = Packrat or {}
 
 local function mailSuccess(eventCode)
 	if Packrat.clearDiscoveries == true then
-		SLASH_COMMANDS["/packratcleardiscoveries"]()
+		d("Mailed Packrat discoveries to @Randactyl. Thank you!")
+		--SLASH_COMMANDS["/packratcleardiscoveries"]()
 		Packrat.clearDiscoveries = false
 	end
 	EVENT_MANAGER:UnregisterForEvent("Packrat_MailSuccess", EVENT_MAIL_SEND_SUCCESS)
@@ -13,17 +14,42 @@ function Packrat.MailDiscoveredSets()
 		local recipient = "@Randactyl1"
 		local subject = "Discovered set info for Packrat v" .. Packrat.addonVersion
 		local body = ""
-		local clearDiscoveries = false
+		local delay = 100
+        local i = 1
+		Packrat.clearDiscoveries = false
 
-		for _,v in pairs(Packrat.savedVars.discoveries) do
-			if v.newSet == true then v.newSet = "NEW SET" else v.newSet = "" end
-			body = body .. " newSet: " .. v.newSet .. "\n" .. "armorType: " .. v.armorType .. "\n" .. " setName: " .. v.setName .. "\n" .. " itemName: " .. v.itemName .. "\n\n"
+		for i = 1, #Packrat.savedVars.discoveries do
+			--i = i - 1
+			local limit = zo_min(4, #Packrat.savedVars.discoveries - i)
+			for j = 1, limit do
+				if Packrat.savedVars.discoveries[i] then
+					if Packrat.savedVars.discoveries[i].newSet == true then
+						Packrat.savedVars.discoveries[i].newSet = "NEW SET" 
+					else Packrat.savedVars.discoveries[i].newSet = "" end
+
+					body = body .. Packrat.savedVars.discoveries[i].newSet .. "\n"
+				            .. "armorType: " .. Packrat.savedVars.discoveries[i].armorType .. "\n"
+				            .. "setName: " .. Packrat.savedVars.discoveries[i].setName .. "\n"
+				            .. "itemName: " .. Packrat.savedVars.discoveries[i].itemName .. "\n\n"
+				end
+				i = i + 1
+			end
+			zo_callLater(function()
+					SendMail(recipient, subject, body)
+					d("mail sent")
+				end, delay)
+			delay = delay + 100
+			body = ""
 		end
 
-		Packrat.clearDiscoveries = true
-		SendMail(recipient, subject, body)
+		--[[for _,v in pairs(Packrat.savedVars.discoveries) do
+			
+		end]]
 
-		EVENT_MANAGER:RegisterForEvent("Packrat_MailSuccess", EVENT_MAIL_SEND_SUCCESS, mailSuccess)
+		Packrat.clearDiscoveries = true
+		zo_callLater(function()
+				EVENT_MANAGER:RegisterForEvent("Packrat_MailSuccess", EVENT_MAIL_SEND_SUCCESS, mailSuccess)
+			end, delay)
 	end
 end
 
