@@ -2,7 +2,165 @@ Packrat = Packrat or {}
 Packrat.PackratUI = Packrat.PackratUI or {}
 
 function Packrat.PackratUI.Initialize()
+    Packrat.PackratUI.window = PackratUIWindow
+    Packrat.PackratUI.treeScrollChild = PackratUIWindowTreeScrollChild
+
+    Packrat.PackratUI.CreateTree()
+    Packrat.PackratUI.PopulateTree()
+end
+
+function Packrat.PackratUI.CreateTree()
+    Packrat.PackratUI.navigationTree = ZO_Tree:New(Packrat.PackratUI.treeScrollChild, 25, 0, 1000)
+
+    local openTexture       = "EsoUI/Art/Buttons/tree_open_up.dds"
+    local closedTexture     = "EsoUI/Art/Buttons/tree_closed_up.dds"
+    local overOpenTexture   = "EsoUI/Art/Buttons/tree_open_over.dds"
+    local overClosedTexture = "EsoUI/Art/Buttons/tree_closed_over.dds"
+
+    local function TreeHeaderSetup(node, control, data, open)
+        if open then end
+
+        local text = control:GetNamedChild("Text")
+        local icon = control:GetNamedChild("Icon")
+        local iconHighlight = icon:GetNamedChild("Highlight")
+
+        text:SetModifyTextType(MODIFY_TEXT_TYPE_UPPERCASE)
+        text:SetFont("ZoFontWinH4")
+        text:SetText(data)
+        text:SetSelected(open)
+        icon:SetTexture(open and openTexture or closedTexture)
+        iconHighlight:SetTexture(open and overOpenTexture or overClosedTexture)
+    end
+
+    Packrat.PackratUI.navigationTree:AddTemplate("PackratUITreeHeader", TreeHeaderSetup, nil, nil, nil, 0)
+
+    local function TreeEntrySetup(node, control, data, open)
+        control:SetFont("ZoFontWinH4")
+        control:SetText(data)
+        control:SetSelected(false)
+    end
+
+    local function TreeEntryOnSelected(control, data, selected, reselectingDuringRebuild)
+        control:SetSelected(selected)
+
+        local texture = GetControl(control, "Icon")
+        texture.selected = selected
+        if selected then
+            texture:SetTexture("EsoUI/Art/Journal/journal_Quest_Selected.dds")
+            texture:SetAlpha(1.00)
+            texture:SetHidden(false)
+        else
+            texture:SetHidden(true)
+        end
+    end
+
+    local function TreeEntryEquality(left, right)
+        return left.name == right.name
+    end
+
+    Packrat.PackratUI.navigationTree:AddTemplate("PackratUITreeNavigationEntry", TreeEntrySetup, TreeEntryOnSelected, TreeEntryEquality)
+
+    Packrat.PackratUI.navigationTree:SetExclusive(false)
+    Packrat.PackratUI.navigationTree:SetOpenAnimation("ZO_TreeOpenAnimation")
+end
+
+function Packrat.PackratUI.AddNodes(dataTable, baseNode)
+    for i,v in pairs(dataTable) do
+        local parentNode = Packrat.PackratUI.navigationTree:AddNode("PackratUITreeHeader", i, baseNode, SOUNDS.QUEST_BLADE_SELECTED)
+        for j, w in pairs(v) do
+            Packrat.PackratUI.navigationTree:AddNode("PackratUITreeNavigationEntry", j, parentNode, SOUNDS.QUEST_SELECTED)
+        end
+    end
+end
+
+function Packrat.PackratUI.PopulateTree()
+    Packrat.PackratUI.navigationTree:Reset()
+
+    local categoryNodes = {}
+
+    categoryNodes[ARMORTYPE_NONE] = Packrat.PackratUI.navigationTree:AddNode("PackratUITreeHeader", GetString(SI_PACKRAT_HEADERNODE_OTHER), nil, SOUNDS.QUEST_BLADE_SELECTED)
+    categoryNodes[ARMORTYPE_LIGHT] = Packrat.PackratUI.navigationTree:AddNode("PackratUITreeHeader", GetString(SI_PACKRAT_HEADERNODE_LIGHT), nil, SOUNDS.QUEST_BLADE_SELECTED)
+    categoryNodes[ARMORTYPE_MEDIUM] = Packrat.PackratUI.navigationTree:AddNode("PackratUITreeHeader", GetString(SI_PACKRAT_HEADERNODE_MEDIUM), nil, SOUNDS.QUEST_BLADE_SELECTED)
+    categoryNodes[ARMORTYPE_HEAVY] = Packrat.PackratUI.navigationTree:AddNode("PackratUITreeHeader", GetString(SI_PACKRAT_HEADERNODE_HEAVY), nil, SOUNDS.QUEST_BLADE_SELECTED)
+
+    Packrat.PackratUI.AddNodes(Packrat.savedVars.sets[ARMORTYPE_NONE], categoryNodes[ARMORTYPE_NONE])
+    Packrat.PackratUI.AddNodes(Packrat.savedVars.sets[ARMORTYPE_LIGHT], categoryNodes[ARMORTYPE_LIGHT])
+    Packrat.PackratUI.AddNodes(Packrat.savedVars.sets[ARMORTYPE_MEDIUM], categoryNodes[ARMORTYPE_MEDIUM])
+    Packrat.PackratUI.AddNodes(Packrat.savedVars.sets[ARMORTYPE_HEAVY], categoryNodes[ARMORTYPE_HEAVY])
+
+    Packrat.PackratUI.navigationTree:Commit()
+end
+
+--[[XML Functions]]
+function Packrat.PackratUI.ToggleWindow(upInside)
+    if upInside == nil or upInside == true then
+        Packrat.PackratUI.window:SetHidden(not Packrat.PackratUI.window:IsHidden())
+    end
+end
+
+local function TreeHeader_OnMouseEnter(control)
+    ZO_SelectableLabel_OnMouseEnter(control:GetNamedChild("Text"))
+    control:GetNamedChild("Icon"):GetNamedChild("Highlight"):SetHidden(false)
+end
+
+local function TreeHeader_OnMouseExit(control)
+    ZO_SelectableLabel_OnMouseEnter(control:GetNamedChild("Text"))
+    control:GetNamedChild("Icon"):GetNamedChild("Highlight"):SetHidden(true)
+end
+
+local function TreeHeader_OnMouseUp(control, upInside)
+    if not upInside then return end
+
+    local node = control.node
+    if not node.open and not node.children then
+        Packrat.PackratUI.AddNodes(node.data.nodeTable, node)
+    end
+
+    ZO_TreeHeader_OnMouseUp(control, upInside)
+end
+
+function Packrat.PackratUI.TreeHeader_OnInitialized(self)
+    self.OnMouseEnter = TreeHeader_OnMouseEnter
+    self.OnMouseExit = TreeHeader_OnMouseExit
+    self.OnMouseUp = TreeHeader_OnMouseUp
+end
+
+function Packrat.PackratUI.TreeNavigationEntry_OnEnter(self)
+end
+
+function Packrat.PackratUI.TreeNavigationEntry_OnExit(self)
+end
+
+function Packrat.PackratUI.TreeNavigationEntry_OnMouseUp(self, button, upInside)
+    if not upInside then return end
+
+    if button == 1 then
+        if(upInside and self.node.tree.enabled) then
+            -- Play the selected sound if not already selected
+            if(not self.node.selected and self.node.selectSound) then
+                PlaySound(self.node.selectSound)
+            end
+            self.node:GetTree():ToggleNode(self.node)
+            self.node:GetTree():SelectNode(self.node)
+        end
+    --[[elseif button == 2 then
+    end
+    if(button == 2 and upInside) then]]
+    end
+end
+
+
+
+
+
+
+
+
+
+
+--[[function Packrat.PackratUI.Initialize()
 	Packrat.PackratUI.CreateScene()
+	Packrat.PackratUI.RefreshTree()
 end
 
 function Packrat.PackratUI.CreateScene()
@@ -41,7 +199,7 @@ end
 function Packrat.PackratUI.CreateLeftFragment()
 	local container = WINDOW_MANAGER:CreateTopLevelWindow("PackratNavigationContainer")
 	--local scroll = WINDOW_MANAGER:CreateControl("($Parent)Scroll", container, CT_SCROLL)
-	local navigationTree = ZO_Tree:New(container, 40, -10, 300)
+	Packrat.PackratUI.navigationTree = ZO_Tree:New(container, 40, -10, 300)
 
 	local openTexture = "EsoUI/Art/Buttons/tree_open_up.dds"
     local closedTexture = "EsoUI/Art/Buttons/tree_closed_up.dds"
@@ -57,7 +215,7 @@ function Packrat.PackratUI.CreateLeftFragment()
 
         control.text:SetSelected(open)
     end
-    navigationTree:AddTemplate("PR_SetHeader", TreeHeaderSetup, nil, nil, nil, 0)
+    Packrat.PackratUI.navigationTree:AddTemplate("ZO_QuestJournalHeader", TreeHeaderSetup, nil, nil, nil, 0)
 
     local function TreeEntrySetup(node, control, data, open)
         control:SetText(data.name)
@@ -108,15 +266,35 @@ function Packrat.PackratUI.CreateLeftFragment()
     local function TreeEntryEquality(left, right)
         return left.name == right.name
     end
-    navigationTree:AddTemplate("PR_SetNavigationEntry", TreeEntrySetup, TreeEntryOnSelected, TreeEntryEquality)
+    Packrat.PackratUI.navigationTree:AddTemplate("PR_SetNavigationEntry", TreeEntrySetup, TreeEntryOnSelected, TreeEntryEquality)
     
-    navigationTree:SetExclusive(true)
-    navigationTree:SetOpenAnimation("ZO_TreeOpenAnimation")
+    Packrat.PackratUI.navigationTree:SetExclusive(true)
+    Packrat.PackratUI.navigationTree:SetOpenAnimation("ZO_TreeOpenAnimation")
 
     local parent = GetControl("ZO_SharedTreeUnderlay")
-    container:SetAnchor(TOPLEFT, parent, TOPLEFT, 0, 0)
+    container:SetAnchor(TOPLEFT, parent, TOPLEFT, 75, 200)
     PACKRAT_LEFT_NAVIGATION_FRAGMENT = ZO_FadeSceneFragment:New(container)
 end
 
 function Packrat.PackratUI.CreateRightFragment()
 end
+
+function Packrat.PackratUI.RefreshTree()
+	local questIndexToTreeNode = {}
+	categoryNodes = {}
+
+	Packrat.PackratUI.navigationTree:Reset()
+
+    categoryNodes[0] = Packrat.PackratUI.navigationTree:AddNode("ZO_QuestJournalHeader", GetString(SI_PACKRAT_HEADERNODE_OTHER), nil, SOUNDS.QUEST_BLADE_SELECTED)
+    categoryNodes[1] = Packrat.PackratUI.navigationTree:AddNode("ZO_QuestJournalHeader", GetString(SI_PACKRAT_HEADERNODE_LIGHT), nil, SOUNDS.QUEST_BLADE_SELECTED)
+    categoryNodes[2] = Packrat.PackratUI.navigationTree:AddNode("ZO_QuestJournalHeader", GetString(SI_PACKRAT_HEADERNODE_MEDIUM), nil, SOUNDS.QUEST_BLADE_SELECTED)
+    categoryNodes[3] = Packrat.PackratUI.navigationTree:AddNode("ZO_QuestJournalHeader", GetString(SI_PACKRAT_HEADERNODE_HEAVY), nil, SOUNDS.QUEST_BLADE_SELECTED)
+
+    for i,v in pairs(Packrat.savedVars.sets) do
+        for k = 0, 3 do
+            for j, w in pairs(v[k]) do
+                Packrat.PackratUI.navigationTree:AddNode("ZO_QuestJournalHeader", j, categoryNodes[k], SOUNDS.QUEST_SELECTED)
+            end
+        end
+    end
+end]]

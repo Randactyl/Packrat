@@ -17,7 +17,7 @@ function Packrat.Initialize()
 	Packrat.InitializeDebug()
 	Packrat.InitializeSlashCommands()
 	--Packrat.InitializeMail()
-	--Packrat.PackratUI.Initialize()
+	Packrat.PackratUI.Initialize()
 
 	--EVENT_MANAGER:RegisterForEvent("Packrat_SingleSlotUpdate", EVENT_INVENTORY_SINGLE_SLOT_UPDATE, Packrat.SingleSlotUpdate)
 
@@ -57,6 +57,10 @@ function Packrat.InitializeDebug()
 end
 
 function Packrat.InitializeSlashCommands()
+	SLASH_COMMANDS["/packrat"] = function(arg)
+		Packrat.PackratUI.ToggleWindow()
+	end
+	
 	SLASH_COMMANDS["/packratscan"] = function(arg)
 		Packrat.ScanInventory()
 	end
