@@ -5,6 +5,10 @@ function Packrat.PackratUI.Initialize()
     Packrat.PackratUI.window = PackratUIWindow
     Packrat.PackratUI.treeScrollChild = PackratUIWindowTreeScrollChild
 
+    PackratUIWindowLabel:SetText(GetString(SI_PACKRAT_TITLE))
+    PackratUIWindowMail:SetText(GetString(SI_PACKRAT_MAIL_BUTTON))
+    PackratUIWindowScan:SetText(GetString(SI_PACKRAT_SCAN_BUTTON))
+
     Packrat.PackratUI.CreateTree()
     Packrat.PackratUI.PopulateTree()
 end
@@ -12,9 +16,9 @@ end
 function Packrat.PackratUI.CreateTree()
     Packrat.PackratUI.navigationTree = ZO_Tree:New(Packrat.PackratUI.treeScrollChild, 25, 0, 1000)
 
-    local openTexture       = "EsoUI/Art/Buttons/tree_open_up.dds"
-    local closedTexture     = "EsoUI/Art/Buttons/tree_closed_up.dds"
-    local overOpenTexture   = "EsoUI/Art/Buttons/tree_open_over.dds"
+    local openTexture = "EsoUI/Art/Buttons/tree_open_up.dds"
+    local closedTexture = "EsoUI/Art/Buttons/tree_closed_up.dds"
+    local overOpenTexture = "EsoUI/Art/Buttons/tree_open_over.dds"
     local overClosedTexture = "EsoUI/Art/Buttons/tree_closed_over.dds"
 
     local function TreeHeaderSetup(node, control, data, open)
@@ -64,15 +68,6 @@ function Packrat.PackratUI.CreateTree()
     Packrat.PackratUI.navigationTree:SetOpenAnimation("ZO_TreeOpenAnimation")
 end
 
-function Packrat.PackratUI.AddNodes(dataTable, baseNode)
-    for i,v in pairs(dataTable) do
-        local parentNode = Packrat.PackratUI.navigationTree:AddNode("PackratUITreeHeader", i, baseNode, SOUNDS.QUEST_BLADE_SELECTED)
-        for j, w in pairs(v) do
-            Packrat.PackratUI.navigationTree:AddNode("PackratUITreeNavigationEntry", j, parentNode, SOUNDS.QUEST_SELECTED)
-        end
-    end
-end
-
 function Packrat.PackratUI.PopulateTree()
     Packrat.PackratUI.navigationTree:Reset()
 
@@ -89,6 +84,31 @@ function Packrat.PackratUI.PopulateTree()
     Packrat.PackratUI.AddNodes(Packrat.savedVars.sets[ARMORTYPE_HEAVY], categoryNodes[ARMORTYPE_HEAVY])
 
     Packrat.PackratUI.navigationTree:Commit()
+end
+
+local function PairsByKeys(tbl, sortFunction)
+    local array = {}
+    for key in pairs(tbl) do table.insert(array, key) end
+    table.sort(array, sortfunction)
+    local i = 0 --iterator variable
+    local iter = function() --iterator function
+        i = i + 1
+        if array[i] == nil then 
+            return nil
+        else 
+            return array[i], tbl[array[i]] --key, table
+        end
+    end
+    return iter
+end
+
+function Packrat.PackratUI.AddNodes(dataTable, baseNode)
+    for setName,setTable in PairsByKeys(dataTable) do
+        local parentNode = Packrat.PackratUI.navigationTree:AddNode("PackratUITreeHeader", setName, baseNode, SOUNDS.QUEST_BLADE_SELECTED)
+        for itemName, itemTable in PairsByKeys(setTable) do
+            Packrat.PackratUI.navigationTree:AddNode("PackratUITreeNavigationEntry", itemName, parentNode, SOUNDS.QUEST_SELECTED)
+        end
+    end
 end
 
 --[[XML Functions]]
@@ -148,15 +168,6 @@ function Packrat.PackratUI.TreeNavigationEntry_OnMouseUp(self, button, upInside)
     if(button == 2 and upInside) then]]
     end
 end
-
-
-
-
-
-
-
-
-
 
 --[[function Packrat.PackratUI.Initialize()
 	Packrat.PackratUI.CreateScene()
