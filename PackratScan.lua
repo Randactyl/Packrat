@@ -8,7 +8,7 @@ local function Scan(bagId)
 	local location = ""
 
 	if bagId == BAG_BANK then
-		location = "Bank"
+		location = GetString(SI_PACKRAT_BANK_KEY)
 	else
 		location = GetUnitName("player")
 	end
@@ -31,12 +31,12 @@ local function Scan(bagId)
 					end
 					if Packrat.savedVars.sets[armorType][setName] == nil then
 						Packrat.savedVars.sets[armorType][setName] = {}
-						d("Discovered new item set: " .. setName)
+						d(GetString(SI_PACKRAT_NEW_ITEM_SET) .. setName)
 						newSet = true
 					end
 					if Packrat.savedVars.sets[armorType][setName][itemName] == nil then
 						Packrat.savedVars.sets[armorType][setName][itemName] = {}
-						d("Discovered new set item: " .. itemLink)
+						d(GetString(SI_PACKRAT_NEW_SET_ITEM) .. itemLink)
 						local temp = {
 							armorType = armorType,
 							setName = setName,
@@ -60,6 +60,8 @@ local function Scan(bagId)
 				end
 			end
 		end
+	else
+		d(GetString(SI_PACKRAT_BANK_SCAN_ERROR))
 	end
 end
 function Packrat.ScanInventory()
@@ -68,7 +70,7 @@ function Packrat.ScanInventory()
 		for _, setName in pairs(armorType) do
 			for _, itemName in pairs(setName) do
 				for _, loc in pairs(itemName) do
-					if not (_ == "Bank" and SHARED_INVENTORY[BAG_BANK] == nil) then
+					if not (_ == GetString(SI_PACKRAT_BANK_KEY) and SHARED_INVENTORY[BAG_BANK] == nil) then
 						for _, itemId in pairs(loc) do
 							itemId.count = 0
 						end
@@ -77,14 +79,12 @@ function Packrat.ScanInventory()
 			end
 		end
 	end
-	--clear discoveries buffer
-	SLASH_COMMANDS["/packratcleardiscoveries"]()
 	--fill target location
 	Scan(BAG_WORN)
 	Scan(BAG_BACKPACK)
 	Scan(BAG_BANK)
 
-	d("Scan complete.")
+	d(GetString(SI_PACKRAT_SCAN_COMPLETE))
 
 	--reform the tree
 	Packrat.PackratUI.PopulateTree()
