@@ -4,11 +4,45 @@ Packrat.defaults = {
 	["discoveries"] = {},
 	["sets"] = {
         [0] = {
+            ["Noble Duelist's Silks"] = {
+                ["Dagger of the Noble Duelist"] = {},
+            },
+            ["Twin Sisters"] = {
+                ["Axe of the Younger Sister"] = {},
+            },
+            ["Armor of the Seducer"] = {
+                ["Restoration Staff of the Seducer"] = {},
+            },
+            ["Ashen Grip"] = {
+                ["Dagger of Ashen Grip"] = {},
+            },
+            ["The Morag Tong"] = {
+                ["Dagger of the Morag Tong"] = {},
+            },
+            ["Draugr's Heritage"] = {
+                ["Battleaxe of Medrike"] = {},
+            },
+            ["Eagle Eye"] = {
+                ["Pact's Bow"] = {},
+            },
+            ["Dreugh King Slayer"] = {
+                ["Pendant of the Dreugh King Slayer"] = {},
+            },
+            ["Way of the Arena"] = {
+                ["Sword of the Arena"] = {},
+            },
+            ["Treasures of the Earthforge"] = {
+                ["The Ebon Sledge"] = {},
+            },
+            ["Arms of the Ancestors"] = {
+                ["White Bow of Alinor"] = {},
+            },
             ["Almalexia's Mercy"] = {
                 ["Locket of Almalexia's Mercy"] = {},
             },
             ["The Destruction Suite"] = {
                 ["Ring of Embers"] = {},
+                ["Arsonist's Staff"] = {},
             },
             ["Torug's Pact"] = {
                 ["Restoration Staff of Torug's Pact"] = {},
@@ -31,11 +65,13 @@ Packrat.defaults = {
             ["Alessian Order"] = {
                 ["Alessian Choker"] = {},
                 ["Alessian Necklace"] = {},
+                ["Alessian Pendant"] = {},
             },
             ["Adroitness"] = {
                 ["Necklace of Adroitness"] = {},
             },
             ["Vestments of the Warlock"] = {
+                ["Signet of the Warlock"] = {},
                 ["Focus of the Warlock"] = {},
             },
             ["Hunding's Rage"] = {
@@ -101,9 +137,31 @@ Packrat.defaults = {
             },
             ["Footman's Fortune"] = {
                 ["Shield of the Footman"] = {},
+                ["Locket of the Footman"] = {},
             },
         },
         [1] = {
+            ["Curse Eater"] = {
+                ["Curse-Eating Epaulets"] = {},
+            },
+            ["Willow's Path"] = {
+                ["Epaulets of the Willow's Path"] = {},
+                ["Sash of the Willow's Path"] = {},
+                ["Shoes of the Willow's Path"] = {},
+                ["Gloves of the Willow's Path"] = {},
+                ["Hat of the Willow's Path"] = {},
+            },
+            ["Undaunted Unweaver"] = {
+                ["Gloves of the Undaunted Unweaver"] = {},
+            },
+            ["Adroitness"] = {
+                ["Robe of Adroitness"] = {},
+                ["Shoes of Adroitness"] = {},
+            },
+            ["Way of Martial Knowledge"] = {
+                ["Epaulets of Martial Knowledge"] = {},
+                ["Sash of Martial Knowledge"] = {},
+            },
             ["Scourge Harvester"] = {
                 ["Malubeth the Scourger's Epaulets"] = {},
             },
@@ -138,6 +196,7 @@ Packrat.defaults = {
                 ["Gloves of the Worm Cult"] = {},
                 ["Shoes of the Worm Cult"] = {},
                 ["Hat of the Worm Cult"] = {},
+                ["Breeches of the Worm Cult"] = {},
             },
             ["Magnus' Gift"] = {
                 ["Magnus' Shoes"] = {},
@@ -191,6 +250,21 @@ Packrat.defaults = {
             },
         },
         [2] = {
+            ["Nerien'eth"] = {
+                ["Nerien'eth's Helmet^n"] = {},
+            },
+            ["Night's Silence"] = {
+                ["Jack of Night's Silence"] = {},
+            },
+            ["Death's Wind"] = {
+                ["Belt of Death's Wind"] = {},
+                ["Arm Cops of Death's Wind"] = {},
+            },
+            ["Undaunted Infiltrator"] = {
+                ["Bracers of the Undaunted Infiltrator"] = {},
+                ["Arm Cops of the Undaunted Infiltrator"] = {},
+                ["Boots of the Undaunted Infiltrator"] = {},
+            },
             ["Blood Spawn"] = {
                 ["Blood Spawn's Arm Cops"] = {},
             },
@@ -245,6 +319,9 @@ Packrat.defaults = {
             },
             ["Oblivion's Edge"] = {
                 ["Bracers of Oblivion"] = {},
+                ["Jack of Oblivion"] = {},
+                ["Boots of Oblivion"] = {},
+                ["Helmet of Oblivion"] = {},
             },
             ["Darkstride"] = {
                 ["Darkstride Boots"] = {},
@@ -258,6 +335,29 @@ Packrat.defaults = {
             },
         },
         [3] = {
+            ["Crest of Cyrodiil"] = {
+                ["Gauntlets of Cyrodiil's Crest"] = {},
+                ["Girdle of Cyrodiil's Crest"] = {},
+            },
+            ["Thunderous Plate Mail"] = {
+                ["Thunderous Greaves"] = {},
+            },
+            ["Armor of Rage"] = {
+                ["Helm of Rage"] = {},
+                ["Greaves of Rage"] = {},
+            },
+            ["Armor of the Seducer"] = {
+                ["Cuirass of the Seducer"] = {},
+                ["Greaves of the Seducer"] = {},
+            },
+            ["Undaunted Bastion"] = {
+                ["Sabatons of the Undaunted Bastion"] = {},
+                ["Helm of the Undaunted Bastion"] = {},
+            },
+            ["Dreugh King Slayer"] = {
+                ["Greaves of the Dreugh King Slayer"] = {},
+                ["Cuirass of the Dreugh King Slayer"] = {},
+            },
             ["The Ice Furnace"] = {
                 ["Ice Furnace Girdle"] = {},
                 ["Ice Furnace Gauntlets"] = {},
@@ -268,10 +368,14 @@ Packrat.defaults = {
             ["Way of Fire"] = {
                 ["Gauntlets of the Fire"] = {},
                 ["Pauldron of the Fire"] = {},
+                ["Girdle of the Fire"] = {},
+                ["Sabatons of the Fire"] = {},
+                ["Greaves of the Fire"] = {},
             },
             ["Akaviri Dragonguard"] = {
                 ["Gauntlets of the Dragon"] = {},
                 ["Greaves of the Dragon"] = {},
+                ["Crest of the Dragon"] = {},
             },
             ["Nightflame"] = {
                 ["Bogdan the Nightflame's Visage"] = {},
@@ -287,6 +391,7 @@ Packrat.defaults = {
             },
             ["Embershield"] = {
                 ["Embershield Sabatons"] = {},
+                ["Embershield Pauldron"] = {},
                 ["Embershield Greaves"] = {},
                 ["Embershield Gauntlets"] = {},
             },
@@ -305,6 +410,7 @@ Packrat.defaults = {
             },
             ["Nikulas' Heavy Armor"] = {
                 ["Gauntlets of Nikulas"] = {},
+                ["Girdle of Nikulas"] = {},
             },
             ["Ravager"] = {
                 ["Ravaging Cuirass"] = {},
@@ -320,6 +426,7 @@ Packrat.defaults = {
             },
             ["Armor of the Construct"] = {
                 ["Girdle of the Construct"] = {},
+                ["Pauldrons of the Construct"] = {},
                 ["Cuirass of the Construct"] = {},
             },
             ["Spawn of Mephala"] = {
