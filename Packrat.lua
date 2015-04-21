@@ -11,15 +11,14 @@ end
 
 function Packrat.Initialize()
 	d("Initializing Packrat...")
+	local accountName = "@" .. GetCVar("AccountName")
 	
 	Packrat.savedVars = ZO_SavedVars:NewAccountWide("Packrat_SavedVariables", Packrat.savedVarsVersion, nil, Packrat.defaults)
 
+	--if accountName == "@Randactyl" then Packrat.InitializeDebug() end
 	Packrat.InitializeDebug()
 	Packrat.InitializeSlashCommands()
-	--Packrat.InitializeMail()
 	Packrat.PackratUI.Initialize()
-
-	--EVENT_MANAGER:RegisterForEvent("Packrat_SingleSlotUpdate", EVENT_INVENTORY_SINGLE_SLOT_UPDATE, Packrat.SingleSlotUpdate)
 
 	d("Packrat initialized.")
 end
@@ -65,15 +64,6 @@ function Packrat.InitializeSlashCommands()
 	SLASH_COMMANDS["/packratscan"] = function(arg)
 		Packrat.ScanInventory()
 	end
-end
-
-function Packrat.SingleSlotUpdate(eventCode, bagId, slotIndex, isNewItem, itemSoundCategory, updateReason)
-	d("bagId: " .. bagId)
-	d("slotIndex: " .. slotIndex)
-	if isNewItem then d("New item")
-	else d("Old item") end
-	d("itemSoundCategory: " .. itemSoundCategory)
-	d("updateReason: " .. updateReason)
 end
 
 EVENT_MANAGER:RegisterForEvent("Packrat_OnAddonLoaded", EVENT_ADD_ON_LOADED, Packrat.OnAddonLoaded)
