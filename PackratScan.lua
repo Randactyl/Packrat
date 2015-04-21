@@ -3,26 +3,20 @@ Packrat = Packrat or {}
 local BACKPACK = ZO_PlayerInventoryBackpack
 local BANK = ZO_PlayerBankBackpack
 
-function Packrat.ScanInventory()
-	local inventory = nil
+local function Scan(bagId)
+	local inventory = SHARED_INVENTORY.bagCache[bagId]
 	local location = ""
-	if BACKPACK:IsHidden() == false then
-		inventory = BACKPACK.data
-		location = GetUnitName("player")
-	elseif BANK:IsHidden() == false then
-		inventory = BANK.data
-		location = "Bank"
-	end
 
+	if bagId == BAG_BANK then
+		location = "Bank"
+	else
+		location = GetUnitName("player")
+	end
+	
 	if inventory ~= nil then
-		--reset target location
-		--ZO_DeepTableCopy(Packrat.defaults.sets, Packrat.savedVars.sets)
-		--clear discoveries buffer
-		SLASH_COMMANDS["/packratcleardiscoveries"]()
-		--fill target location
 		for i = 1, #inventory do
 			if inventory[i] then
-				local itemLink = GetItemLink(inventory[i].data.bagId, inventory[i].data.slotIndex, LINK_STYLE_BRACKETS)
+				local itemLink = GetItemLink(inventory[i].bagId, inventory[i].slotIndex, LINK_STYLE_BRACKETS)
 				local hasSet, setName, numberOfBonuses, numEquipped, maxWearable = GetItemLinkSetInfo(itemLink)
 				local newSet = false
 
@@ -66,6 +60,32 @@ function Packrat.ScanInventory()
 				end
 			end
 		end
-		d("Scan complete.")
 	end
+end
+function Packrat.ScanInventory()
+	--reset target location
+	for _, armorType in pairs(Packrat.savedVars.sets) do
+		for _, setName in pairs(armorType) do
+			for _, itemName in pairs(setName) do
+				for _, loc in pairs(itemName) do
+					if not (_ == "Bank" and SHARED_INVENTORY[BAG_BANK] == nil) then
+						for _, itemId in pairs(loc) do
+							itemId.count = 0
+						end
+					end
+				end
+			end
+		end
+	end
+	--clear discoveries buffer
+	SLASH_COMMANDS["/packratcleardiscoveries"]()
+	--fill target location
+	Scan(BAG_WORN)
+	Scan(BAG_BACKPACK)
+	Scan(BAG_BANK)
+
+	d("Scan complete.")
+
+	--reform the tree
+	Packrat.PackratUI.PopulateTree()
 end
