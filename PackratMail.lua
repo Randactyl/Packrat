@@ -9,7 +9,7 @@ function Packrat.MailDiscoveries()
 		local subject = "Discovered data for Packrat v" .. Packrat.addonVersion
 		local bodies = {}
 		local tempBody = ""
-		local delay = 100
+		local delay = 200
 		local i = 0
 
 		RequestOpenMailbox()
@@ -40,7 +40,7 @@ function Packrat.MailDiscoveries()
 			zo_callLater(function()
 					SendMail(recipient, subject .. "(" .. j .. " of " .. #bodies .. ")", bodies[j])
 				end, delay)
-			delay = delay + 100
+			delay = delay + 200
 		end
 
 		CloseMailbox()

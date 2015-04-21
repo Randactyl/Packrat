@@ -4,6 +4,21 @@ Packrat.defaults = {
 	["discoveries"] = {},
 	["sets"] = {
         [0] = {
+            ["Storm Knight's Plate"] = {
+                ["Pendant of the Storm Knight"] = {},
+            },   
+            ["Nikulas' Heavy Armor"] = {
+                ["Shield of Nikulas"] = {},
+            },         
+            ["The Juggernaut"] = {
+                ["Shield of the Juggernaut"] = {},
+            },
+            ["Crusader"] = {
+                ["Shield of the Crusader"] = {},
+            },
+            ["The Arch-Mage"] = {
+                ["Pendant of the Arch-Mage"] = {},
+            },
             ["Noble Duelist's Silks"] = {
                 ["Dagger of the Noble Duelist"] = {},
             },
@@ -86,6 +101,7 @@ Packrat.defaults = {
             },
             ["Healer's Habit"] = {
                 ["Necklace of the Healer"] = {},
+                ["Ring of the Healer"] = {},
             },
             ["Ravager"] = {
                 ["Ravaging Choker"] = {},
@@ -190,6 +206,7 @@ Packrat.defaults = {
             },
             ["Prisoner's Rags"] = {
                 ["Prisoner's Shawl"] = {},
+                ["Prisoner's Gloves"] = {},
             },
             ["The Worm's Raiment"] = {
                 ["Robe of the Worm Cult"] = {},
@@ -224,6 +241,7 @@ Packrat.defaults = {
             },
             ["Valkyn Skoria"] = {
                 ["Valkyn Skoria's Epaulets^p"] = {},
+                ["Valkyn Skoria's Hat^n"] = {},
             },
             ["Buffer of the Swift"] = {
                 ["Pact's Sash^p"] = {},
@@ -250,6 +268,14 @@ Packrat.defaults = {
             },
         },
         [2] = {
+            ["Ward of Cyrodiil"] = {
+                ["Jack of Cyrodiil's Ward"] = {},
+                ["Leg Guards of Cyrodiil's Ward"] = {},
+            },
+            ["Hircine's Veneer"] = {
+                ["Savior's Jack"] = {},
+                ["Savior's Helmet"] = {},
+            },
             ["Nerien'eth"] = {
                 ["Nerien'eth's Helmet^n"] = {},
             },
@@ -290,6 +316,7 @@ Packrat.defaults = {
             },
             ["Valkyn Skoria"] = {
                 ["Valkyn Skoria's Helmet^n"] = {},
+                ["Valkyn Skoria's Arm Cops^p"] = {},
             },
             ["Maw of the Infernal"] = {
                 ["Maw of the Infernal's Arm Cops^p"] = {},
@@ -311,6 +338,7 @@ Packrat.defaults = {
             },
             ["Sunderflame"] = {
                 ["Sunderflame Bracers"] = {},
+                ["Sunderflame Jack"] = {},
             },
             ["Twin Sisters"] = {
                 ["Bracers of the Twin Sisters"] = {},
@@ -335,6 +363,9 @@ Packrat.defaults = {
             },
         },
         [3] = {
+            ["Valkyn Skoria"] = {
+                ["Valkyn Skoria's Pauldron^p"] = {},
+            },   
             ["Crest of Cyrodiil"] = {
                 ["Gauntlets of Cyrodiil's Crest"] = {},
                 ["Girdle of Cyrodiil's Crest"] = {},
@@ -391,6 +422,7 @@ Packrat.defaults = {
             },
             ["Embershield"] = {
                 ["Embershield Sabatons"] = {},
+                ["Embershield Cuirass"] = {},
                 ["Embershield Pauldron"] = {},
                 ["Embershield Greaves"] = {},
                 ["Embershield Gauntlets"] = {},
