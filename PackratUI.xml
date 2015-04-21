@@ -4,7 +4,7 @@
 		<TopLevelControl name="PackratUIWindow" clampedToScreen="true" mouseEnabled="true" movable="true" hidden="true" resizeHandleSize="5">
 			<Dimensions x="800" y="700" />
 			<DimensionConstraints minX="375" minY="375" />
-			<Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="TOPLEFT"  offsetX="0" offsetY="0"/>
+			<Anchor point="CENTER" relativeTo="GuiRoot" relativePoint="CENTER"  offsetX="0" offsetY="0"/>
             <Controls>
                 <Backdrop name="$(parent)Backdrop" inherits="ZO_DefaultBackdrop" alpha="1" layer="0" level="0" tier="0" >
 					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT"  offsetX="0" offsetY="0"/>
@@ -15,14 +15,6 @@
 					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="10" offsetY="10"/>
 					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="-10" offsetY="30"/>
 				</Label>
-
-				<Button name="$(parent)Scan" inherits="ZO_DefaultButton" font="ZoFontGameMedium"  text="Scan">
-					<Dimensions x="100" y="20" />
-					<Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="-40" offsetY="15"/>
-					<OnMouseUp>
-						Packrat.ScanInventory()
-					</OnMouseUp>
-				</Button>
 
 				<Button name="$(parent)Close" inherits="ZO_DefaultButton" font="ZoFontGameMedium"  >
 					<Dimensions x="32" y="32" />
@@ -35,6 +27,22 @@
 						/>
 					<OnMouseUp>
 						Packrat.PackratUI.ToggleWindow(upInside)
+					</OnMouseUp>
+				</Button>
+
+				<Button name="$(parent)Mail" inherits="ZO_DefaultButton" font="ZoFontGameMedium"  text="Mail Discoveries">
+					<Dimensions x="130" y="20" />
+					<Anchor point="TOPRIGHT" relativeTo="$(parent)Close" relativePoint="TOPLEFT" offsetX="-10" offsetY="0"/>
+					<OnMouseUp>
+						Packrat.MailDiscoveries()
+					</OnMouseUp>
+				</Button>
+
+				<Button name="$(parent)Scan" inherits="ZO_DefaultButton" font="ZoFontGameMedium"  text="Scan Items">
+					<Dimensions x="100" y="20" />
+					<Anchor point="TOPRIGHT" relativeTo="$(parent)Mail" relativePoint="TOPLEFT" offsetX="-10" offsetY="0"/>
+					<OnMouseUp>
+						Packrat.ScanInventory()
 					</OnMouseUp>
 				</Button>
 
@@ -134,73 +142,5 @@
                 </Texture>
             </Controls>
         </Label>
-		
-		
-        <!--<TopLevelControl name="AnimatePopUp" clampedToScreen="true" mouseEnabled="true" movable="true" hidden="true" >
-            <Dimensions x="300" y="100" />
-			<DimensionConstraints minX="300" minY="100" maxX="300" maxY="100"/> 
-            <Anchor point="BOTTOM" relativeTo="TextureItWinTexture" relativePoint="TOP" offsetX="0" offsetY="0" />
-            <Controls>
-                <Backdrop name="$(parent)Backdrop" inherits="ZO_DefaultBackdrop" alpha="1" layer="0" level="0" tier="0" >
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT"  offsetX="0" offsetY="0"/>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="BOTTOMRIGHT"  offsetX="0" offsetY="0"/>
-				</Backdrop>
-				
-				
-				<Label name="$(parent)CellsWide" font="ZoFontWinH4" color="FFFFFF" wrapMode="ELLIPSIS" text="Cells Wide:" verticalAlignment="CENTER" horizontalAlignment="LEFT" alpha="1" layer="1" level="0" tier="0" >
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="10" offsetY="10"/>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="-200" offsetY="30"/>
-				</Label>
-                <Backdrop name="$(parent)WideBg" inherits="ZO_EditBackdrop" alpha="1" layer="0" level="0" tier="0" >
-					<Anchor point="TOPLEFT" relativeTo="$(parent)CellsWide" relativePoint="TOPRIGHT"  offsetX="10" offsetY="0"/>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)CellsWide" relativePoint="BOTTOMRIGHT"  offsetX="40" offsetY="0"/>
-				</Backdrop>
-				<EditBox name="$(parent)CellsWideEditBox" font="ZoFontChat" horizontalAlignment="LEFT" verticalAlignment="CENTER" text="" editEnabled="true" maxInputCharacters="2" multiLine="false" newLineEnabled="false" inherits="ZO_DefaultEditForBackdrop">
-				  <Anchor point="TOPLEFT" relativeTo="$(parent)WideBg" relativePoint="TOPLEFT" offsetY="0" />
-				  <Anchor point="BOTTOMRIGHT" relativeTo="$(parent)Label" relativePoint="BOTTOMRIGHT" offsetY="0" />
-				</EditBox>
-				
-				
-				<Label name="$(parent)CellsHigh" font="ZoFontWinH4" color="FFFFFF" wrapMode="ELLIPSIS" text="Cells High:" verticalAlignment="CENTER" horizontalAlignment="LEFT" alpha="1" layer="1" level="0" tier="0" >
-					<Anchor point="TOPLEFT" relativeTo="$(parent)CellsWide" relativePoint="BOTTOMLEFT" offsetX="0" offsetY="10"/>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)CellsWide" relativePoint="BOTTOMRIGHT" offsetX="0" offsetY="30"/>
-				</Label>
-                <Backdrop name="$(parent)HighBg" inherits="ZO_EditBackdrop" alpha="1" layer="0" level="0" tier="0" >
-					<Anchor point="TOPLEFT" relativeTo="$(parent)CellsHigh" relativePoint="TOPRIGHT"  offsetX="10" offsetY="0"/>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)CellsHigh" relativePoint="BOTTOMRIGHT"  offsetX="40" offsetY="0"/>
-				</Backdrop>
-				<EditBox name="$(parent)CellsHighEditBox" font="ZoFontChat" horizontalAlignment="LEFT" verticalAlignment="CENTER" text="" editEnabled="true" maxInputCharacters="2" multiLine="false" newLineEnabled="false" inherits="ZO_DefaultEditForBackdrop">
-				  <Anchor point="TOPLEFT" relativeTo="$(parent)HighBg" relativePoint="TOPLEFT"/>
-				  <Anchor point="BOTTOMRIGHT" relativeTo="$(parent)HighBg" relativePoint="BOTTOMRIGHT"  />
-				</EditBox>
-				
-				
-				<Label name="$(parent)FrameRate" font="ZoFontWinH4" color="FFFFFF" wrapMode="ELLIPSIS" text="Framerate:" verticalAlignment="CENTER" horizontalAlignment="LEFT" alpha="1" layer="1" level="0" tier="0" >
-					<Anchor point="TOPLEFT" relativeTo="$(parent)CellsHigh" relativePoint="BOTTOMLEFT" offsetX="0" offsetY="10"/>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)CellsHigh" relativePoint="BOTTOMRIGHT" offsetX="0" offsetY="30"/>
-				</Label>
-                <Backdrop name="$(parent)FrameRateBg" inherits="ZO_EditBackdrop" alpha="1" layer="0" level="0" tier="0" >
-					<Anchor point="TOPLEFT" relativeTo="$(parent)FrameRate" relativePoint="TOPRIGHT"  offsetX="10" offsetY="0"/>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)FrameRate" relativePoint="BOTTOMRIGHT"  offsetX="40" offsetY="0"/>
-				</Backdrop>
-				<EditBox name="$(parent)FrameRateEditBox" font="ZoFontChat" horizontalAlignment="LEFT" verticalAlignment="CENTER" text="" editEnabled="true" maxInputCharacters="2" multiLine="false" newLineEnabled="false" inherits="ZO_DefaultEditForBackdrop">
-				  <Anchor point="TOPLEFT" relativeTo="$(parent)FrameRateBg" relativePoint="TOPLEFT"/>
-				  <Anchor point="BOTTOMRIGHT" relativeTo="$(parent)FrameRateBg" relativePoint="BOTTOMRIGHT"  />
-				</EditBox>
-				
-				
-				
-				
-				<Button name="$(parent)AnimateBtn" inherits="ZO_DefaultButton" font="ZoFontWinH2" text="Animate">
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="-160" offsetY="30"/>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="BOTTOMRIGHT" offsetX="-10" offsetY="-30"/>
-					<OnMouseDown>
-						TextureIt_Animate_Texture(self)
-					</OnMouseDown>
-				</Button>
-				
-		
-			</Controls>
-		</TopLevelControl>-->
 	</Controls>
 </GuiXml>
