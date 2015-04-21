@@ -28,6 +28,7 @@ function Packrat.InitializeDebug()
 	SLASH_COMMANDS["/packratclear"] = function(arg)
 		Packrat_SavedVariables["Default"]["@Randactyl"]["$AccountWide"] = {}
 		ZO_DeepTableCopy(Packrat.defaults, Packrat.savedVars)
+		ReloadUI()
 		d("Packrat saved variables reset.")
 	end
 
@@ -60,7 +61,7 @@ function Packrat.InitializeSlashCommands()
 	SLASH_COMMANDS["/packrat"] = function(arg)
 		Packrat.PackratUI.ToggleWindow()
 	end
-	
+
 	SLASH_COMMANDS["/packratscan"] = function(arg)
 		Packrat.ScanInventory()
 	end
