@@ -2,8 +2,8 @@
 	<Controls>
 		<!-- TLW -->
 		<TopLevelControl name="PackratUIWindow" clampedToScreen="true" mouseEnabled="true" movable="true" hidden="true" resizeHandleSize="5">
-			<Dimensions x="375" y="500" />
-			<!--<DimensionConstraints minX="350" minY="600" />-->
+			<Dimensions x="800" y="700" />
+			<DimensionConstraints minX="375" minY="375" />
 			<Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="TOPLEFT"  offsetX="0" offsetY="0"/>
             <Controls>
                 <Backdrop name="$(parent)Backdrop" inherits="ZO_DefaultBackdrop" alpha="1" layer="0" level="0" tier="0" >
@@ -15,6 +15,14 @@
 					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="10" offsetY="10"/>
 					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="-10" offsetY="30"/>
 				</Label>
+
+				<Button name="$(parent)Scan" inherits="ZO_DefaultButton" font="ZoFontGameMedium"  text="Scan">
+					<Dimensions x="100" y="20" />
+					<Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="-40" offsetY="15"/>
+					<OnMouseUp>
+						Packrat.ScanInventory()
+					</OnMouseUp>
+				</Button>
 
 				<Button name="$(parent)Close" inherits="ZO_DefaultButton" font="ZoFontGameMedium"  >
 					<Dimensions x="32" y="32" />
@@ -31,8 +39,9 @@
 				</Button>
 
 				<Control name="$(parent)Tree" inherits="ZO_ScrollContainerBase">
-					<Anchor point="TOPLEFT" relativeTo="$(parent)Label" relativePoint="BOTTOMLEFT"  offsetX="10" offsetY="50"/>
-					<Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="BOTTOMRIGHT"  offsetX="-10" offsetY="-10"/>
+					<Dimensions x="375" />
+					<Anchor point="TOPLEFT" relativeTo="$(parent)Label" relativePoint="BOTTOMLEFT"  offsetX="10" offsetY="25"/>
+					<Anchor point="BOTTOMLEFT" relativeTo="$(parent)" relativePoint="BOTTOMLEFT"  offsetX="10" offsetY="-10"/>
 					<OnInitialized>
 						ZO_Scroll_Initialize(self)
 					</OnInitialized>
