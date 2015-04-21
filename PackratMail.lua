@@ -1,58 +1,49 @@
 Packrat = Packrat or {}
 
-local function mailSuccess(eventCode)
-	if Packrat.clearDiscoveries == true then
-		d("Mailed Packrat discoveries to @Randactyl. Thank you!")
-		--SLASH_COMMANDS["/packratcleardiscoveries"]()
-		Packrat.clearDiscoveries = false
-	end
-	EVENT_MANAGER:UnregisterForEvent("Packrat_MailSuccess", EVENT_MAIL_SEND_SUCCESS)
-end
-
-function Packrat.MailDiscoveredSets()
-	if #Packrat.savedVars.discoveries > 0 then
-		local recipient = "@Randactyl1"
-		local subject = "Discovered set info for Packrat v" .. Packrat.addonVersion
-		local body = ""
+function Packrat.MailDiscoveries()
+	if #Packrat.savedVars.discoveries == 0 then
+		d(GetString(SI_PACKRAT_MAIL_NO_DISCOVERIES))
+	else
+		local numDiscoveries = #Packrat.savedVars.discoveries
+		local recipient = "@Randactyl"
+		local subject = "Discovered data for Packrat v" .. Packrat.addonVersion
+		local bodies = {}
+		local tempBody = ""
 		local delay = 100
-        local i = 1
-		Packrat.clearDiscoveries = false
+		local i = 0
 
-		for i = 1, #Packrat.savedVars.discoveries do
-			--i = i - 1
-			local limit = zo_min(4, #Packrat.savedVars.discoveries - i)
-			for j = 1, limit do
-				if Packrat.savedVars.discoveries[i] then
-					if Packrat.savedVars.discoveries[i].newSet == true then
-						Packrat.savedVars.discoveries[i].newSet = "NEW SET" 
-					else Packrat.savedVars.discoveries[i].newSet = "" end
+		RequestOpenMailbox()
 
-					body = body .. Packrat.savedVars.discoveries[i].newSet .. "\n"
-				            .. "armorType: " .. Packrat.savedVars.discoveries[i].armorType .. "\n"
-				            .. "setName: " .. Packrat.savedVars.discoveries[i].setName .. "\n"
-				            .. "itemName: " .. Packrat.savedVars.discoveries[i].itemName .. "\n\n"
+		while numDiscoveries > 0 do
+			i = i + 1
+			numDiscoveries = #Packrat.savedVars.discoveries
+
+			for j = zo_min(4, numDiscoveries), 1, -1 do
+				if Packrat.savedVars.discoveries[j] then
+					if Packrat.savedVars.discoveries[j].newSet == true then
+						Packrat.savedVars.discoveries[j].newSet = "NEW SET\n"
+					else Packrat.savedVars.discoveries[j].newSet = "" end
+
+					tempBody = tempBody .. Packrat.savedVars.discoveries[j].newSet
+				            .. "armorType: " .. Packrat.savedVars.discoveries[j].armorType .. "\n"
+				            .. "setName: " .. Packrat.savedVars.discoveries[j].setName .. "\n"
+				            .. "itemName: " .. Packrat.savedVars.discoveries[j].itemName .. "\n\n"
+				   	table.remove(Packrat.savedVars.discoveries, j)
 				end
-				i = i + 1
 			end
-			zo_callLater(function()
-					SendMail(recipient, subject, body)
-					d("mail sent")
-				end, delay)
-			delay = delay + 100
-			body = ""
+
+			bodies[i] = tempBody
+			tempBody = ""
 		end
 
-		--[[for _,v in pairs(Packrat.savedVars.discoveries) do
-			
-		end]]
+		for j = 1, #bodies do
+			zo_callLater(function()
+					SendMail(recipient, subject .. "(" .. j .. " of " .. #bodies .. ")", bodies[j])
+				end, delay)
+			delay = delay + 100
+		end
 
-		Packrat.clearDiscoveries = true
-		zo_callLater(function()
-				EVENT_MANAGER:RegisterForEvent("Packrat_MailSuccess", EVENT_MAIL_SEND_SUCCESS, mailSuccess)
-			end, delay)
+		CloseMailbox()
+		d(GetString(SI_PACKRAT_MAIL_SENT_DISCOVERIES))
 	end
-end
-
-function Packrat.InitializeMail()
-	EVENT_MANAGER:RegisterForEvent("Packrat_MailDiscoveredSets", EVENT_MAIL_OPEN_MAILBOX, Packrat.MailDiscoveredSets)
 end
