@@ -124,7 +124,7 @@ local function TreeHeader_OnMouseEnter(control)
 end
 
 local function TreeHeader_OnMouseExit(control)
-    ZO_SelectableLabel_OnMouseEnter(control:GetNamedChild("Text"))
+    ZO_SelectableLabel_OnMouseExit(control:GetNamedChild("Text"))
     control:GetNamedChild("Icon"):GetNamedChild("Highlight"):SetHidden(true)
 end
 
@@ -159,10 +159,12 @@ function Packrat.PackratUI.TreeNavigationEntry_OnMouseUp(self, button, upInside)
             -- Play the selected sound if not already selected
             if(not self.node.selected and self.node.selectSound) then
                 PlaySound(self.node.selectSound)
+
             end
             self.node:GetTree():ToggleNode(self.node)
             self.node:GetTree():SelectNode(self.node)
         end
+    --right click functionality
     --[[elseif button == 2 then
     end
     if(button == 2 and upInside) then]]
